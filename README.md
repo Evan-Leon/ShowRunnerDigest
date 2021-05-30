@@ -38,7 +38,7 @@
    * Begin to try and integrate date with app
 * Thursday
    * Have data display as intended
-   * SCSS descign
+   * SCSS design
 * Friday
    * Work on animations
    * Final displays         
