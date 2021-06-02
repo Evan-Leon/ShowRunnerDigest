@@ -35,7 +35,7 @@
    * Begin HTML strucutre
 * Wednesday
    * Finalize API calls
-   * Begin to try and integrate date with app
+   * Begin to try and integrate data with app
 * Thursday
    * Have data display as intended
    * SCSS design
