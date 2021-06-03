@@ -5,28 +5,48 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <link rel="stylesheet" href="./dist/main.css" />
-      
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet">  
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+      <script src="https://d3js.org/d3.v6.min.js"></script>
       <title>ShowRunner Digest</title>
   </head>
 
   <body>
-      <h1>ShowRunner Digest</h1>
-      <div class="screen">
-          <script>
-             async function getData() {
-            const apiUrl = "http://api.tvmaze.com/shows/551/crew";
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-            //parse the data (d3)
-            return console.log(data)
-        
-            // document.querySelector(".screen").innerHTML= screenDisplay(
-            //     data
-                
-            // )
-        }
-    </script>
-      </div>
+      
+      <div class="frame">
+        <div class="screen">
+            <svg id="bar-chart" height="550" width="1150" style="margin: 20px" ></svg>
+            <div class="ticker-wrapper">
+                <div class="ticker-move">
+                    <div class="ticker-item" id="chuckLorre">Chuck Lorre</div>
+                    <div class="ticker-item" id="samEsmail">Sam Esmail</div>
+                    <div class="ticker-item" id="stevenConrad">Steven Conrad</div>
+                    <div class="ticker-item" id="vinceGilligan">Vince Gilligan</div>
+                    <div class="ticker-item" id="michaelSchur">Michael Schur</div>
+                    <div class="ticker-item" id="damonLindelof">Damon Lindelof</div>
+                    <div class="ticker-item" id="noahHawley">Noah Hawley</div>
+                    <div class="ticker-item" id="davidChase">David Chase</div>
+                    <div class="ticker-item" id="juddApatow">Judd Apatow</div>
+                    <div class="ticker-item" id="mattGroening">Matt Groening</div>
+                    <div class="ticker-item" id="davidCohen">David Cohen</div>
+                    <div class="ticker-item" id="larryDavid">Larry David</div>
+                    <div class="ticker-item" id="tinaFey">Tina Fey</div>
+                    <div class="ticker-item" id="sethMacfarlane">Seth MacFarlane</div>
+                    <div class="ticker-item" id="danHarmon">Dan Harmon</div>
+              </div>
+            </div>
+        </div>
+        <h1 class="logo">ShowRunner Digest</h1>
+        <div class="buttons">
+            <label >Options
+                <div class="options"></div>
+            </label>
+            <label >Power
+                <div class="power"></div>
+            </label>
+        </div>
+    </div>
       <script src="./dist/main.js"></script>
   </body>
 </html>

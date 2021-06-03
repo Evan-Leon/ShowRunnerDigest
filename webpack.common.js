@@ -20,7 +20,7 @@ module.exports = {
           loader: "babel-loader",
           options: {
             presets: ["@babel/preset-env"],
-            plugins: ["@babel/plugin-proposal-optional-chaining"],
+            plugins: ["@babel/plugin-proposal-optional-chaining", "@babel/plugin-transform-runtime"], 
             exclude: /node_modules/,
           }, 
         },
