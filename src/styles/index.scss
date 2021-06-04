@@ -47,7 +47,7 @@
     align-self: center;
    justify-self: center;
    font-size: 46px;
-   color: rgb(170, 169, 173);
+   color: rgb(173, 171, 169);
 
    &:hover{
     cursor: default;
@@ -58,7 +58,8 @@
     height: 50px;
     width: 50px;
     border-radius: 50px;
-    background-color: white;
+    background-color: rgb(102, 99, 99);
+    box-shadow: 1px 1px 1px 1px rgb(131, 128, 128);
     &:hover{
         cursor:pointer;
     }
@@ -69,7 +70,8 @@
     height: 50px;
     width: 50px;
     border-radius: 50px;
-    background-color: white;
+    background-color: rgb(102, 99, 99);
+    box-shadow: 1px 1px 1px 1px rgb(131, 128, 128);
     &:hover{
         cursor:pointer;
     }
@@ -77,8 +79,9 @@
 }
 
 label {
-    font-family: 'Mate SC', serif;
-    color: gold;
+    font-family: 'Bebas Neue', cursive;
+    color: rgb(170, 169, 173);
+    font-size: 25px;
 }
 
 svg {

@@ -34,7 +34,7 @@ function makeGraph(apiData){
             .text(shows.rating))
                 
     
-    const color = 'green'
+    const color = '#e9bc8fd8'
 
     // const svg = d3.select('#bar-chart')
     //     .style('background-color', '#b0e0e696')
