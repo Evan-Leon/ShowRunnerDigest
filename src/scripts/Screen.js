@@ -1,23 +1,12 @@
 import "../styles/index.scss";
 async function getData(showRunner) {
-    // const showRunners = {
-    //     samEsmail: 63749,
-    //     damonLindelof: 26414,
-    //     noahHawley: 6042,
-    //     markBurnett: 24815,
-    //     chuckLorre: 8688,
-    //     stevenConrad: 165062,
-    //     michaelSchur: 6939,
-    //     vinceGilligan: 31025,
-    // }
+ 
     const positions = [
         "Executive Producer", "Creator"
     ]
     const apiUrl = `http://api.tvmaze.com/people/${showRunner.nameId}/crewcredits?embed=show`;
     const response = await fetch(apiUrl);
     const data = await response.json();
-    //parse the data (d3)
-    // console.log(data)
     const shows = [];
     const titles = [];
     console.log(data)
@@ -32,7 +21,22 @@ async function getData(showRunner) {
         }}
 
     })
-    return {shows, name: showRunner.name}
+    let ratingCounter = 0;
+    const showsAvg = shows.forEach(show => {
+       
+        ratingCounter += show.rating
+        console.log(`ratingscounter:${ratingCounter}`)
+        console.log(shows.length)
+        return (ratingCounter/shows.length)
+    })
+    
+
+    if (shows.length > 8){
+        const smallShows = shows.slice(0,8);
+        return {shows: smallShows, name: showRunner.name}
+    } else {
+        return {shows, name: showRunner.name, seriesAvg: showsAvg}
+    }
     // d3.selectAll("svg > *").remove();
     // const margin = ({top: 30, right: 0, bottom: 30, left: 40})
     // const height = 600;

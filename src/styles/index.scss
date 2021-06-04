@@ -18,13 +18,13 @@
     background-color: rgb(24, 21, 21);
 }
 
-.screen {
-    height: 80vh;
-    width: 80vw;
-    background-color: #b0e0e696;
-    padding: 10px;
+#screen {
+    height: 650px;
+    width: 1100px;
+    padding-top: 40px;
     border-radius: 15px;
     margin: 60px 0 0 120px;
+    background-color:#2666661f;
 }
 
 .buttons {
@@ -48,6 +48,10 @@
    justify-self: center;
    font-size: 46px;
    color: rgb(170, 169, 173);
+
+   &:hover{
+    cursor: default;
+}
 }
 
 .options {
@@ -55,6 +59,10 @@
     width: 50px;
     border-radius: 50px;
     background-color: white;
+    &:hover{
+        cursor:pointer;
+    }
+   
 }
 
 .power {
@@ -62,6 +70,10 @@
     width: 50px;
     border-radius: 50px;
     background-color: white;
+    &:hover{
+        cursor:pointer;
+    }
+
 }
 
 label {
@@ -70,9 +82,51 @@ label {
 }
 
 svg {
-    border-radius: 15px;
+    
     font-family: 'Bebas Neue', cursive;
+    color: #b5d7e7cb;
+    
     
 }
 
+.static {
+    background-image: url("../images/static.gif") ;
+    background-size: cover;
+    
+   
+    
+}
+/* https://thumbs.gfycat.com/CornyBossyBadger-size_restricted.gif */
+.powering-off {
+    background-image: url("../images/tv_off.gif") ;
+    background-size: cover;
+    
+}
 
+/* https://www.trivworks.com/wp-content/uploads/2011/10/colorBars.jpg  credit for photo*/
+.bars {
+    background-image: url("../images/colorBars.jpeg") ;
+    height: fit-content;
+    width: 100vw;
+}
+/* bars static powering-off off  <<-- names of classes on screen */
+.bars-gif {
+        background-image: url("../images/rainbow_bars.gif") ;
+        background-size: cover;
+}
+
+.on {
+    background-color: #b0e0e696
+}
+
+.off {
+    background-color:#2666661f;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.hovered {
+    background-color: hotpink;
+}

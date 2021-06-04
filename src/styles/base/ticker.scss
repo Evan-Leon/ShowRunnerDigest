@@ -1,17 +1,14 @@
 //https://codeconvey.com/horizontal-news-ticker-css/
 
-.ticker-wrapper {
+#ticker-wrapper {
     position: inline-block;
-    bottom: 50;
-      left: 0;
     width: 100%;
     overflow: hidden;
     height: 3rem;
-    background-color: #b0e0;
-    box-sizing: content-box;
+    background-color: rgba(214, 43, 71, 0);
   }
 
-  .ticker-wrapper .ticker-move {
+  #ticker-wrapper .ticker-move {
     display: inline-block;
     height: 4rem;
     line-height: 4rem;
@@ -24,15 +21,21 @@
     animation-timing-function: linear;
     -webkit-animation-name: ticker;
     animation-name: ticker;
-    -webkit-animation-duration: 20s;
-    animation-duration: 20s;
+    -webkit-animation-duration: 60s;
+    animation-duration: 60s;
   }
 
-  .ticker-wrapper .ticker-item {
+  #ticker-wrapper .ticker-item {
     display: inline-block;
     padding: 0 2rem;
-    font-size: 25px;
-    color: gold;
+    font-size: 30px;
+    color: rgba(181, 215, 231, 0.795);
+    font-family: 'Bebas Neue', cursive;
+
+  }
+
+  .ticker-item:hover {
+    cursor: pointer;
   }
 
   @-webkit-keyframes ticker {

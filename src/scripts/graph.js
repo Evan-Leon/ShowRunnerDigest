@@ -1,10 +1,10 @@
 function makeGraph(apiData){
 
-    const {shows, name} = apiData; //deconstruct data
-
+    const {shows, name, seriesAvg} = apiData; //deconstruct data
+    
     d3.selectAll("svg > *").remove(); //clear svg
     const svg = d3.select('#bar-chart')
-        .style('background-color', '#b0e0e696')
+        .style('background-color', '#47b9b91f')
 
     const margin = ({top: 30, right: 0, bottom: 30, left: 40})
     const height = svg.attr("height");
@@ -21,7 +21,7 @@ function makeGraph(apiData){
     const xAxis = g => g
         .attr("transform", `translate(0,${height - margin.bottom})`)
         .call(d3.axisBottom(x).tickFormat(i => shows[i].title).tickSizeOuter(0))
-
+        .style("font-size", "15px")
     const yAxis = g => g
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y).ticks(null, shows.rating))
@@ -32,6 +32,7 @@ function makeGraph(apiData){
             .attr("fill", "currentColor")
             .attr("text-anchor", "start")
             .text(shows.rating))
+                
     
     const color = 'green'
 
@@ -47,8 +48,11 @@ function makeGraph(apiData){
             .attr("y", d =>height- margin.bottom- y(0) + y(d.rating))
             .attr("height", d =>y(0) - y(d.rating))//- y(d.value))
             .attr("width", x.bandwidth())
-        .append('svg:title')
-            .text(function(d) {return 'Rating: ' + d.rating})
+
+        .append('svg:title') /* hover on bars */
+            .text(function(d) {return `${d.title} -- Rating: ${d.rating}`})
+
+
     svg.append("g")
         .call(xAxis);
 
@@ -60,7 +64,8 @@ function makeGraph(apiData){
         .attr("y", (margin.top))
         .attr("text-anchor", "middle")  
         .style("font-size", "28px")   
-        .text(`${name}`);
+        .style("fill", "#b5d7e7cb")   
+        .text(`${name}`); //<<-- Add seriesAvg here
     
     return svg.node();
 }
