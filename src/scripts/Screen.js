@@ -4,7 +4,7 @@ async function getData(showRunner) {
     const positions = [
         "Executive Producer", "Creator"
     ]
-    const apiUrl = `http://api.tvmaze.com/people/${showRunner.nameId}/crewcredits?embed=show`;
+    const apiUrl = `https://api.tvmaze.com/people/${showRunner.nameId}/crewcredits?embed=show`;
 
     const response = await fetch(apiUrl);
     const data = await response.json();
