@@ -48,21 +48,55 @@ buttonClicks.addEventListener('click', handleButtonClick);
 function handleButtonClick(event){
     
     if (event.srcElement.className === "power"){
-        const removeClass = () =>  document.getElementById("screen").classList.remove('powering-off');
-        const addClass = () =>  document.getElementById("screen").classList.add('off');
+        const screen = document.getElementById("screen")
+        debugger
+        if (screen.classList[0] === 'off'){
+            const removeClass = () =>  document.getElementById("screen").classList.remove('turn-on');
+            const removeHidden = () =>  document.getElementById("bar-chart").classList.remove('hidden');
+            const addClass = () =>  document.getElementById("screen").classList.add('turn-on');
+            const addClassOn = () =>  document.getElementById("screen").classList.add('on');
+            
+            const turnOn= () => (setTimeout(addClass, 3500));
+            const switchTurnOn= () => (setTimeout(removeClass, 6000));
+            const unhideBarchart= () => (setTimeout(removeHidden, 6100));
+            const classOn= () => (setTimeout(addClassOn, 6100));
 
-        document.getElementById("bar-chart").classList.add('hidden')
-        document.getElementById("screen").classList.add('powering-off')
+            document.getElementById("screen").classList.remove('off');
+            document.getElementById("bar-chart").classList.add('hidden');
+            addClass();
+            switchTurnOn();
+            classOn();
+            unhideBarchart();
+            // turnOn();
+            // switchTurnOn();
+            // classOn();
 
-        const switchScreen= () => (setTimeout(removeClass, 3300));
-        const turnOff= () => (setTimeout(addClass, 3500));
+            console.log(screen.classList[0])
+        }else {
+            const removeClass = () =>  document.getElementById("screen").classList.remove('powering-off');
+            const addClass = () =>  document.getElementById("screen").classList.add('off');
 
-        switchScreen();
-        turnOff();
+            document.getElementById("bar-chart").classList.add('hidden')
+            document.getElementById("screen").classList.remove('on');
+            document.getElementById("screen").classList.add('powering-off')
 
+            const switchScreen= () => (setTimeout(removeClass, 3300));
+            const turnOff= () => (setTimeout(addClass, 3500));
+
+            switchScreen();
+            turnOff();
+        }
     } else if( event.srcElement.className === "options") {
-        console.log(event)
-        console.log("in the options handler")
+        const modalOn = () =>  document.getElementById("modal").classList.add('modal-on');
+        const addClass = () =>  document.getElementById("modal").classList.add('modal-off');
+
+        // document.getElementById("bar-chart").classList.add('hidden');
+        // document.getElementById("screen").classList.add('modal-bars')
+        
+        
+        modalOn();
+
+        
     }
 }
 

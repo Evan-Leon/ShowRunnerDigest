@@ -16,10 +16,20 @@
   <body>
       
       <div class="frame">
-        <div id="screen" class="">
+        <div id="screen" class="off">
             <svg id="bar-chart" height="550" width="1100" style="margin: 0px" class=""></svg>
+            <div id="modal" class="modal-off">
+                <h1>S1E1: Welcome to Showrunner Digest</h1>
+                <p>Your scheduled program is now beginning.
+                    To start click the power button. 
+                    Once the TV turns on choose any Showrunner from the bottom ticker. 
+                    A graph with a Showrunner's series will appear with the series TVMAZE score. 
+                    Hover over individual series bars to see the individual rating.
+                    See you next Season!
+                </p>
+            </div>
             <div id="ticker-wrapper" class="">
-                <div class="ticker-move">
+                <div class="ticker-move" id="">
                     <div class="ticker-item" id="chuckLorre">Chuck Lorre</div>
                     <div class="ticker-item" id="samEsmail">Sam Esmail</div>
                     <div class="ticker-item" id="stevenConrad">Steven Conrad</div>
@@ -67,6 +77,16 @@
                 <div class="power"></div>
             </label>
         </div>
+    </div>
+    <div id="modal" class="modal-on">
+        <h1>S1E1: Welcome to Showrunner Digest</h1>
+        <p>Your scheduled program is now beginning.
+            To start click the power button. 
+            Once the TV turns on choose any Showrunner from the bottom ticker. 
+            A graph with a Showrunner's series will appear with the series TVMAZE score. 
+            Hover over individual series bars to see the individual rating.
+            See you next Season!
+        </p>
     </div>
       <script src="./dist/main.js"></script>
   </body>

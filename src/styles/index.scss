@@ -133,3 +133,50 @@ svg {
 .hovered {
     background-color: hotpink;
 }
+
+.modal-off{
+    visibility: hidden; 
+}
+
+.modal-on {
+    height: 300px;
+    width: 300px;
+    border: 1px solid rgb(170, 169, 173);
+    background-color: gold;
+    
+    z-index: 5;
+}
+
+.modal-bars {
+    background-image: url("../images/rainbow_bars.gif");
+    background-size: cover;
+}
+
+.turn-on {
+    background-image: url("../images/tv_on.gif");
+    background-size: cover;
+}
+
+.hide-ticker {
+    display: hidden;
+}
+
+.ticker-move> .ticker-item{
+    display: hidden;
+}
+
+#hidden {
+    display: hidden;
+}
+
+#modal {
+    background-color: pink;
+    height: 400px;
+    width: 600px;
+    position: absolute;
+    z-index: 1;
+    top: 20%;
+    right: 35%;
+    
+}
+
