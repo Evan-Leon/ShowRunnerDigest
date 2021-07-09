@@ -204,7 +204,9 @@ svg {
 }
 
 .hovertool {
-    z-index: 3;
+    z-index: 50;
+    position: absolute;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .select-title{

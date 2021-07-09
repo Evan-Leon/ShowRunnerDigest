@@ -37,38 +37,117 @@ function makeGraph(apiData){
     
     const color = '#e9bc8fd8'
 
-    let hover = svg
+    let hover = d3.select("body")
         .append("div")
         .style("opacity", 0)
+        .style('visibility', 'visible')
+        .style("position", "absolute")
         .attr("class", "hovertool")
         .style('background-color', 'white')
+        .style("z-index", 10)
         .style('border', 'solid')
         .style('border-width', '1px')
         .style('border-radius', '5px')
         .style('padding', '5px')
         
+       
+
+    // let hover = svg.append("g")
+    //     .attr("class", 'hover')
+    //     .attr('visibility', 'hidden')
+    //     .style('z-index', 5)
+    //     .style('position', 'absolute')
+    //     .style('top', 100)
+    //     .style('left', 100)
+    
+    // hover.append('rect')
+    //     .attr("fill", "white")
+    //     .attr("x", 50)
+    //     .attr("y", 500)
+    //     .attr("width", 50)
+    //     .attr("height", 50)
+
+    // let txt = hover.append("text")
+    //     .attr("fill", "black")
+    //     .attr("text-anchor", "start")
+    //     .attr("alignment-baseline", "baseline")
+    //     .attr("x", 50)
+    //     .attr("y", 450)
+        
+
+    // d3.selectAll('rect') 
+    //     .on("mouseover", mouseOver)
+    //     .on("mousemove", mouseMove)
+    //     .on("mouseleave", mouseLeave)
 
     let mouseOver = function(d){
         
         hover
             .style("opacity", 1)
+            .style("visibility", "visible")
+            
         d3.select(this)
             .style('stroke', 'black')
             .style('opacity', .8)
+            
     }
+    // let mouseOver = function(d){
+
+    //     hover
+    //         .style("visibility", "visible")
+    //     let show = d3.select(this).raise();
+
+    //     txt.text(`${show.datum().title} --- ${show.datum().rating}`)
+            
+    //     // txt
+    //     //      .style("x", (d3.pointer(d)[0] + 70)+ 'px')
+    //     //       .style("y", (d3.pointer(d)[1]) + 'px')
+    // }
+    // function mouseOver(){
+
+    //     hover
+    //         .style("visibility", "visible")
+    //     let show = d3.select(this)
+        
+    //     txt.text(`${show.datum().title} --- ${show.datum().rating}`)
+      
+    // }
     let mouseMove = function(d){
         debugger
         hover
             .html(`${d.currentTarget.__data__.title} -- Rating: ${d.currentTarget.__data__.rating}`)
-            .style("left", (d3.pointer(d)[0] + 70)+ 'px')
-            .style("top", (d3.pointer(d)[1]) + 'px')
+            // .style("x", 200)
+            .style("left", (d3.pointer(d)[0] + 70) + 'px')
+            // .style("x", (d3.pointer(d)[0] + 70) + 'px')
+           
+            // .style("y", 100)
+            .style("top", (d3.pointer(d)[1] + 50) + 'px')
+            // .style("y", (d3.pointer(d)[1]/ 2) + 'px')
             
     }
+    // let mouseMove = function (d) {
+    //     debugger
+    //     hover
+    //         .html(`${d.currentTarget.__data__.title} -- Rating: ${d.currentTarget.__data__.rating}`)
+    //         .style("left", '200px')
+    //         // .style("left", (d3.pointer(d)[0] + 70)+ 'px')
+    //         .style("top", '100px')
+    //     // .style("top", (d3.pointer(d)[1]) + 'px')
+
+    // }
+    // let mouseLeave = function (d) {
+    //     hover.style("opacity", 1)
+    //     d3.select(this)
+    //         .style("stroke", "none")
+    //         .style("opacity", 1)
+    // }
     let mouseLeave = function(d){
-        hover.style("opacity", 0)
+        hover.style("opacity", 1)
+            .style("visibility", "hidden")
         d3.select(this)
             .style("stroke", "none")
             .style("opacity", 1)
+            
     }
     // const svg = d3.select('#bar-chart')
     //     .style('background-color', '#b0e0e696')
@@ -85,13 +164,15 @@ function makeGraph(apiData){
         .on("mouseover", mouseOver)
         .on("mousemove", mouseMove)
         .on("mouseleave", mouseLeave)
+        
 
         // .append('svg:title') /* hover on bars */
         //     .text(function(d) {return `${d.title} -- Rating: ${d.rating}`})
+               
 
 
     svg.append("g")
-        .call(xAxis);
+        .call(xAxis)
         
 
     svg.append('text')
@@ -104,7 +185,7 @@ function makeGraph(apiData){
 
     svg.append("g")
         .call(yAxis);
-
+        
     svg.append('text')
     .attr('transform', 'rotate(-90)')
         .attr('x', 0-(height/2))
