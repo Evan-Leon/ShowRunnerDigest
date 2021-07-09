@@ -4,30 +4,34 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <link rel="shortcut icon" href="./src/images/favicon.png">
       <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
       <link rel="stylesheet" href="./dist/main.css" />
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet">  
       <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
       <script src="https://d3js.org/d3.v6.min.js"></script>
+        <!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+        type='text/css'> -->
+        <script src="https://kit.fontawesome.com/cd176def21.js" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta property="og:title" content="ShowRunner Digest" />
+      <meta property="og:image" content="./images/ShowRunner.gif" />
+      <meta property="og:description"
+          content="ShowRunner Digest is an interactive data visualization of various Showrunners and their average series ratings made with JS "/>
+      <meta property="og:url" content="https://evan-leon.github.io/ShowRunnerDigest/" />
       <title>ShowRunner Digest</title>
   </head>
 
   <body>
       
       <div class="frame">
-        <div id="screen" class="off">
+       
+        <div id="screen" class="on">
+            
             <svg id="bar-chart" height="550" width="1100" style="margin: 0px" class=""></svg>
-            <div id="modal" class="modal-off">
-                <h1>S1E1: Welcome to Showrunner Digest</h1>
-                <p>Your scheduled program is now beginning.
-                    To start click the power button. 
-                    Once the TV turns on choose any Showrunner from the bottom ticker. 
-                    A graph with a Showrunner's series will appear with the series TVMAZE score. 
-                    Hover over individual series bars to see the individual rating.
-                    See you next Season!
-                </p>
-            </div>
+          
             <div id="ticker-wrapper" class="">
                 <div class="ticker-move" id="">
                     <div class="ticker-item" id="chuckLorre">Chuck Lorre</div>
@@ -68,6 +72,55 @@
               </div>
             </div>
         </div>
+        <div class="side-outer-container">
+            <div class="pers-links">
+                <h2 class="me">Evan Leon</h2>
+                <a href="https://www.linkedin.com/in/evan-leon-737918211/"><i class="fab fa-linkedin fa-3x"></i></a>
+                <a href="https://github.com/Evan-Leon"><i class="fab fa-github fa-3x"></i></a>
+                <a href="https://angel.co/u/evan-leon"><i class="fab fa-angellist fa-3x"></i></a>
+            </div>
+            <div class="sr-select-container">
+                <label class='select-title' for="sr-select">Choose a ShowRunner</label>
+                <select name="sr-select" id="sr-select" >
+                    <option disabled>Choose a ShowRunner</option>
+                    <option class="sr-select-item" value="chuckLorre">Chuck Lorre</option>
+                    <option class="sr-select-item" value="samEsmail">Sam Esmail</option>
+                    <option class="sr-select-item" value="stevenConrad">Steven Conrad</option>
+                    <option class="sr-select-item" value="vinceGilligan">Vince Gilligan</option>
+                    <option class="sr-select-item" value="michaelSchur">Michael Schur</option>
+                    <option class="sr-select-item" value="damonLindelof">Damon Lindelof</option>
+                    <option class="sr-select-item" value="noahHawley">Noah Hawley</option>
+                    <option class="sr-select-item" value="davidChase">David Chase</option>
+                    <option class="sr-select-item" value="juddApatow">Judd Apatow</option>
+                    <option class="sr-select-item" value="mattGroening">Matt Groening</option>
+                    <option class="sr-select-item" value="davidCohen">David X Cohen</option>
+                    <option class="sr-select-item" value="larryDavid">Larry David</option>
+                    <option class="sr-select-item" value="tinaFey">Tina Fey</option>
+                    <option class="sr-select-item" value="sethMacfarlane">Seth MacFarlane</option>
+                    <option class="sr-select-item" value="jonFavreau">Jon Favreau</option>
+                    <option class="sr-select-item" value="avaDuvernay">Ava DuVernay</option>
+                    <option class="sr-select-item" value="davidKelly">David E Kelly</option>
+                    <option class="sr-select-item" value="danielLevy">Daniel Levy</option>
+                    <option class="sr-select-item" value="shondaRhimes">Shonda Rhimes</option>
+                    <option class="sr-select-item" value="geneRoddenberry">Gene Roddenberry</option>
+                    <option class="sr-select-item" value="danSchneider">Dan Schneider</option>
+                    <option class="sr-select-item" value="aaronSorkin">Aaron Sorkin</option>
+                    <option class="sr-select-item" value="dickWolf">Dick Wolf</option>
+                    <option class="sr-select-item" value="brunoHeller">Bruno Heller</option>
+                    <option class="sr-select-item" value="mikeJudge">Mike Judge</option>
+                    <option class="sr-select-item" value="gregDaniels">Greg Daniels</option>
+                    <option class="sr-select-item" value="jossWheedon">Joss Wheedon</option>
+                    <option class="sr-select-item" value="billLawrence">Bill Lawrence</option>
+                    <option class="sr-select-item" value="stevenMoffat">Steven Moffat</option>
+                    <option class="sr-select-item" value="markGatiss">Mark Gatiss</option>
+                    <option class="sr-select-item" value="martaKauffman">Marta Kauffman</option>
+                    <option class="sr-select-item" value="davidCrane">David Crane</option>
+                    <option class="sr-select-item" value="nicPizzolatto">Nic Pizzolatto</option>
+                    <option class="sr-select-item" value="jerrySeinfeld">Jerry Seinfeld</option>
+                    <option class="sr-select-item" value="phoebeWallerBridge">Phoebe Waller-Bridge</option>
+                </select>
+            </div>
+        </div>
         <h1 class="logo">ShowRunner Digest</h1>
         <div class="buttons">
             <label >Options
@@ -79,14 +132,20 @@
         </div>
     </div>
     <div id="modal" class="modal-on">
-        <h1>S1E1: Welcome to Showrunner Digest</h1>
-        <p>Your scheduled program is now beginning.
-            To start click the power button. 
-            Once the TV turns on choose any Showrunner from the bottom ticker. 
-            A graph with a Showrunner's series will appear with the series TVMAZE score. 
-            Hover over individual series bars to see the individual rating.
-            See you next Season!
-        </p>
+        <h1 class='modal-title'> S1E1: Welcome to Showrunner Digest</h1>
+        <p class="modal-desc">Your scheduled program is now beginning </p>
+           
+            <p class="modal-desc">To start choose any Showrunner from the bottom ticker or the dropdown on the side </p>
+            <p class="modal-desc">A graph with a Showrunner's series will appear with each of the series TVMAZE score </p>
+            <p class="modal-desc">Hover over an individual series bar to see that series rating </p>
+            <p class="modal-desc">See you next Season! </p>
+            <div class="modal-links">
+                <a href="https://www.linkedin.com/in/evan-leon-737918211/"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="https://github.com/Evan-Leon"><i class="fab fa-github fa-2x"></i></a>
+                <a href="https://angel.co/u/evan-leon"><i class="fab fa-angellist fa-2x"></i></a>
+            </div>
+            
+        
     </div>
       <script src="./dist/main.js"></script>
   </body>

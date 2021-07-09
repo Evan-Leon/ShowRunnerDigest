@@ -24,11 +24,15 @@ const showRunners = {
 }
 
 const tickerItem = document.querySelector('.ticker-move');
+const dropdownItem = document.getElementById("sr-select"); 
 tickerItem.addEventListener('click', sendData);
+dropdownItem.addEventListener('change', dropdownData);
 async function sendData(event){
+    debugger
     const removeClass = () =>  document.getElementById("screen").classList.remove('static'); 
     const changeGraph = () =>  document.getElementById("bar-chart").classList.remove('hidden'); 
-    
+    const hideModal =() => document.getElementById("modal").classList.add("modal-off");
+    const modalOff = () => document.getElementById("modal").classList.remove("modal-on");
     document.getElementById("screen").classList.add('static')
     document.getElementById("bar-chart").classList.add('hidden')
    
@@ -36,7 +40,39 @@ async function sendData(event){
     
     const switchScreen= () => (setTimeout(removeClass, 1000));
     const unHide = () => (setTimeout(changeGraph, 1000));
+    debugger
+    if (modal.classList[0]=== "modal-on"){
+        debugger
+        modalOff();
+        hideModal();
+    }
     
+    switchScreen();
+    unHide();
+    makeGraph(apiData);
+
+}
+
+async function dropdownData(event) {
+    debugger
+    const removeClass = () => document.getElementById("screen").classList.remove('static');
+    const changeGraph = () => document.getElementById("bar-chart").classList.remove('hidden');
+    const hideModal = () => document.getElementById("modal").classList.add("modal-off");
+    const modalOff = () => document.getElementById("modal").classList.remove("modal-on");
+    document.getElementById("screen").classList.add('static')
+    document.getElementById("bar-chart").classList.add('hidden')
+
+    const apiData = await getData({ nameId: showRunners[event.currentTarget.value], name: [event.currentTarget.value] })
+
+    const switchScreen = () => (setTimeout(removeClass, 1000));
+    const unHide = () => (setTimeout(changeGraph, 1000));
+    debugger
+    if (modal.classList[0] === "modal-on") {
+        debugger
+        modalOff();
+        hideModal();
+    }
+
     switchScreen();
     unHide();
     makeGraph(apiData);
@@ -60,13 +96,21 @@ function handleButtonClick(event){
             const switchTurnOn= () => (setTimeout(removeClass, 6000));
             const unhideBarchart= () => (setTimeout(removeHidden, 6100));
             const classOn= () => (setTimeout(addClassOn, 6100));
+            const hideModal = () => document.getElementById("modal").classList.add("modal-off");
+            const modalOff = () => document.getElementById("modal").classList.remove("modal-on");
 
             document.getElementById("screen").classList.remove('off');
             document.getElementById("bar-chart").classList.add('hidden');
+            if (modal.classList[0] === "modal-on") {
+                debugger
+                modalOff();
+                hideModal();
+            }
             addClass();
             switchTurnOn();
             classOn();
             unhideBarchart();
+            
             // turnOn();
             // switchTurnOn();
             // classOn();
@@ -74,27 +118,43 @@ function handleButtonClick(event){
             console.log(screen.classList[0])
         }else {
             const removeClass = () =>  document.getElementById("screen").classList.remove('powering-off');
-            const addClass = () =>  document.getElementById("screen").classList.add('off');
-
+            const takeOff = () =>  document.getElementById("screen").classList.remove('off');
+            const addClassOff = () => document.getElementById("screen").classList.add('off');
+            const hideModal = () => document.getElementById("modal").classList.add("modal-off");
+            const modalOff = () => document.getElementById("modal").classList.remove("modal-on");
             document.getElementById("bar-chart").classList.add('hidden')
             document.getElementById("screen").classList.remove('on');
             document.getElementById("screen").classList.add('powering-off')
 
             const switchScreen= () => (setTimeout(removeClass, 3300));
-            const turnOff= () => (setTimeout(addClass, 3500));
-
+            // const turnOff= () => (setTimeout(addClass, 3500));
+            if (modal.classList[0] === "modal-on") {
+                debugger
+                modalOff();
+                hideModal();
+            }
             switchScreen();
-            turnOff();
+            addClassOff();
         }
     } else if( event.srcElement.className === "options") {
-        const modalOn = () =>  document.getElementById("modal").classList.add('modal-on');
-        const addClass = () =>  document.getElementById("modal").classList.add('modal-off');
-
-        // document.getElementById("bar-chart").classList.add('hidden');
-        // document.getElementById("screen").classList.add('modal-bars')
+        debugger
+        const modal = document.getElementById("modal");
+        if (modal.classList[0] === 'modal-off'){
+            const modalOn = () =>  document.getElementById("modal").classList.add('modal-on');
+            const modalOff = () =>  document.getElementById("modal").classList.remove('modal-off');
+            modalOff();
+            modalOn();
+            // document.getElementById("bar-chart").classList.add('hidden');
+            // document.getElementById("screen").classList.add('modal-bars')
+        } else {
+            const modalOff = () => document.getElementById("modal").classList.add('modal-off');
+            const modalOn = () => document.getElementById("modal").classList.remove('modal-on');
+        
+            modalOn();
+            modalOff();
+        }
         
         
-        modalOn();
 
         
     }
