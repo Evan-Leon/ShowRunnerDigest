@@ -6,11 +6,10 @@
 
 ## Functionality and MVPs
 * In Showrunner Digest users will be able to:
-    * View a graph showing a showrunners show ratings (from high to low)
-    * View a comparison of various showrunners and their average episode rating
-    * Interact with data when hovered over data bar, will give info on show or showrunner
+    * View a graph showing a Showrunners show ratings (from high to low)
+    * Interact with data when hovered over data bar, will give info on show 
 * This project will include:
-    * Animate with tv style animations between graphs
+    * Animation with tv style animations between graphs
     * A 90s era tv screen which holds all information
     * TV will have interactable buttons to either display data info or change graph metrics
 
@@ -24,7 +23,7 @@
 * IMDB API
 * TVMAZE API
 * TVDB API
-* External Libraries and NPM packages (D3, Fetch API, Web Audio API)
+* External Libraries and NPM packages (D3, Fetch API)
 
 ## Implementation Timeline
 * Monday
