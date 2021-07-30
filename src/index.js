@@ -110,10 +110,6 @@ function handleButtonClick(event){
             switchTurnOn();
             classOn();
             unhideBarchart();
-            
-            
-
-            
         }else {
             const removeClass = () =>  document.getElementById("screen").classList.remove('powering-off');
             const takeOff = () =>  document.getElementById("screen").classList.remove('off');
