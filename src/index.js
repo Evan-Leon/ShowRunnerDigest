@@ -92,7 +92,7 @@ function handleButtonClick(event){
             const addClass = () =>  document.getElementById("screen").classList.add('turn-on');
             const addClassOn = () =>  document.getElementById("screen").classList.add('on');
             
-            const turnOn= () => (setTimeout(addClass, 3500));
+            
             const switchTurnOn= () => (setTimeout(removeClass, 6000));
             const unhideBarchart= () => (setTimeout(removeHidden, 6100));
             const classOn= () => (setTimeout(addClassOn, 6100));
@@ -111,11 +111,9 @@ function handleButtonClick(event){
             classOn();
             unhideBarchart();
             
-            // turnOn();
-            // switchTurnOn();
-            // classOn();
+            
 
-            console.log(screen.classList[0])
+            
         }else {
             const removeClass = () =>  document.getElementById("screen").classList.remove('powering-off');
             const takeOff = () =>  document.getElementById("screen").classList.remove('off');

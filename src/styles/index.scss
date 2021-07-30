@@ -20,11 +20,11 @@
 }
 
 #screen {
-    height: 650px;
+    height: 555px;
     width: 1100px;
     padding-top: 40px;
     border-radius: 15px;
-    margin: 60px 0 0 120px;
+    margin: 20px 0 0 120px;
     background-color:#2666661f;
 }
 
@@ -172,12 +172,12 @@ svg {
 }
 
 #modal {
-    background-color: blue;
-    height: 350px;
+    background-color: #175a5a;
+    height: 420px;
     width: 600px;
     position: absolute;
     z-index: 1;
-    top: 20%;
+    top: 16%;
     right: 35%;
     
 }
@@ -185,6 +185,7 @@ svg {
 .sr-select-container{
    
     margin-left: 10px;
+    
 }
 
 .pers-links{
@@ -215,4 +216,28 @@ svg {
   
 }
 
+#pers-linked{
+    color:rgba(181, 215, 231, 0.795);
+}
+
+#pers-git{
+    color:rgba(181, 215, 231, 0.795);
+}
+
+#pers-angel{
+    color:rgba(181, 215, 231, 0.795);
+}
+
+#pers-port{
+    color:rgba(181, 215, 231, 0.795);
+}
+
+#maze-link{
+    text-decoration: none;
+    color: #e9bc8fd8;
+    
+    &:hover{
+        color:rgba(181, 215, 231, 0.795);
+    }
+}
 

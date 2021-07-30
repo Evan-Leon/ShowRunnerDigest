@@ -29,8 +29,48 @@
       <div class="frame">
        
         <div id="screen" class="on">
-            
-            <svg id="bar-chart" height="550" width="1100" style="margin: 0px" class=""></svg>
+            <div class="sr-select-container">
+                <label class='select-title' for="sr-select">Choose a ShowRunner</label>
+                <select name="sr-select" id="sr-select">
+                    <option disabled>Choose a ShowRunner</option>
+                    <option class="sr-select-item" value="chuckLorre">Chuck Lorre</option>
+                    <option class="sr-select-item" value="samEsmail">Sam Esmail</option>
+                    <option class="sr-select-item" value="stevenConrad">Steven Conrad</option>
+                    <option class="sr-select-item" value="vinceGilligan">Vince Gilligan</option>
+                    <option class="sr-select-item" value="michaelSchur">Michael Schur</option>
+                    <option class="sr-select-item" value="damonLindelof">Damon Lindelof</option>
+                    <option class="sr-select-item" value="noahHawley">Noah Hawley</option>
+                    <option class="sr-select-item" value="davidChase">David Chase</option>
+                    <option class="sr-select-item" value="juddApatow">Judd Apatow</option>
+                    <option class="sr-select-item" value="mattGroening">Matt Groening</option>
+                    <option class="sr-select-item" value="davidCohen">David X Cohen</option>
+                    <option class="sr-select-item" value="larryDavid">Larry David</option>
+                    <option class="sr-select-item" value="tinaFey">Tina Fey</option>
+                    <option class="sr-select-item" value="sethMacfarlane">Seth MacFarlane</option>
+                    <option class="sr-select-item" value="jonFavreau">Jon Favreau</option>
+                    <option class="sr-select-item" value="avaDuvernay">Ava DuVernay</option>
+                    <option class="sr-select-item" value="davidKelly">David E Kelly</option>
+                    <option class="sr-select-item" value="danielLevy">Daniel Levy</option>
+                    <option class="sr-select-item" value="shondaRhimes">Shonda Rhimes</option>
+                    <option class="sr-select-item" value="geneRoddenberry">Gene Roddenberry</option>
+                    <option class="sr-select-item" value="danSchneider">Dan Schneider</option>
+                    <option class="sr-select-item" value="aaronSorkin">Aaron Sorkin</option>
+                    <option class="sr-select-item" value="dickWolf">Dick Wolf</option>
+                    <option class="sr-select-item" value="brunoHeller">Bruno Heller</option>
+                    <option class="sr-select-item" value="mikeJudge">Mike Judge</option>
+                    <option class="sr-select-item" value="gregDaniels">Greg Daniels</option>
+                    <option class="sr-select-item" value="jossWheedon">Joss Wheedon</option>
+                    <option class="sr-select-item" value="billLawrence">Bill Lawrence</option>
+                    <option class="sr-select-item" value="stevenMoffat">Steven Moffat</option>
+                    <option class="sr-select-item" value="markGatiss">Mark Gatiss</option>
+                    <option class="sr-select-item" value="martaKauffman">Marta Kauffman</option>
+                    <option class="sr-select-item" value="davidCrane">David Crane</option>
+                    <option class="sr-select-item" value="nicPizzolatto">Nic Pizzolatto</option>
+                    <option class="sr-select-item" value="jerrySeinfeld">Jerry Seinfeld</option>
+                    <option class="sr-select-item" value="phoebeWallerBridge">Phoebe Waller-Bridge</option>
+                </select>
+            </div>
+            <svg id="bar-chart" height="450" width="1100" style="margin: 0px" class=""></svg>
           
             <div id="ticker-wrapper" class="">
                 <div class="ticker-move" id="">
@@ -82,47 +122,7 @@
                 <a target="_blank" href="https://evanleon.com"> <i id="port" class="fas fa-user fa-3x"></i></a>
                 
             </div>
-            <div class="sr-select-container">
-                <label class='select-title' for="sr-select">Choose a ShowRunner</label>
-                <select name="sr-select" id="sr-select" >
-                    <option disabled>Choose a ShowRunner</option>
-                    <option class="sr-select-item" value="chuckLorre">Chuck Lorre</option>
-                    <option class="sr-select-item" value="samEsmail">Sam Esmail</option>
-                    <option class="sr-select-item" value="stevenConrad">Steven Conrad</option>
-                    <option class="sr-select-item" value="vinceGilligan">Vince Gilligan</option>
-                    <option class="sr-select-item" value="michaelSchur">Michael Schur</option>
-                    <option class="sr-select-item" value="damonLindelof">Damon Lindelof</option>
-                    <option class="sr-select-item" value="noahHawley">Noah Hawley</option>
-                    <option class="sr-select-item" value="davidChase">David Chase</option>
-                    <option class="sr-select-item" value="juddApatow">Judd Apatow</option>
-                    <option class="sr-select-item" value="mattGroening">Matt Groening</option>
-                    <option class="sr-select-item" value="davidCohen">David X Cohen</option>
-                    <option class="sr-select-item" value="larryDavid">Larry David</option>
-                    <option class="sr-select-item" value="tinaFey">Tina Fey</option>
-                    <option class="sr-select-item" value="sethMacfarlane">Seth MacFarlane</option>
-                    <option class="sr-select-item" value="jonFavreau">Jon Favreau</option>
-                    <option class="sr-select-item" value="avaDuvernay">Ava DuVernay</option>
-                    <option class="sr-select-item" value="davidKelly">David E Kelly</option>
-                    <option class="sr-select-item" value="danielLevy">Daniel Levy</option>
-                    <option class="sr-select-item" value="shondaRhimes">Shonda Rhimes</option>
-                    <option class="sr-select-item" value="geneRoddenberry">Gene Roddenberry</option>
-                    <option class="sr-select-item" value="danSchneider">Dan Schneider</option>
-                    <option class="sr-select-item" value="aaronSorkin">Aaron Sorkin</option>
-                    <option class="sr-select-item" value="dickWolf">Dick Wolf</option>
-                    <option class="sr-select-item" value="brunoHeller">Bruno Heller</option>
-                    <option class="sr-select-item" value="mikeJudge">Mike Judge</option>
-                    <option class="sr-select-item" value="gregDaniels">Greg Daniels</option>
-                    <option class="sr-select-item" value="jossWheedon">Joss Wheedon</option>
-                    <option class="sr-select-item" value="billLawrence">Bill Lawrence</option>
-                    <option class="sr-select-item" value="stevenMoffat">Steven Moffat</option>
-                    <option class="sr-select-item" value="markGatiss">Mark Gatiss</option>
-                    <option class="sr-select-item" value="martaKauffman">Marta Kauffman</option>
-                    <option class="sr-select-item" value="davidCrane">David Crane</option>
-                    <option class="sr-select-item" value="nicPizzolatto">Nic Pizzolatto</option>
-                    <option class="sr-select-item" value="jerrySeinfeld">Jerry Seinfeld</option>
-                    <option class="sr-select-item" value="phoebeWallerBridge">Phoebe Waller-Bridge</option>
-                </select>
-            </div>
+           
         </div>
         <h1 class="logo">ShowRunner Digest</h1>
         <div class="buttons">
@@ -138,10 +138,14 @@
         <h1 class='modal-title'> S1E1: Welcome to Showrunner Digest</h1>
         <p class="modal-desc">Your scheduled program is now beginning </p>
            
-            <p class="modal-desc">To start choose any Showrunner from the bottom ticker or the dropdown on the side </p>
-            <p class="modal-desc">A graph with a Showrunner's series will appear with each of the series TVMAZE score </p>
-            <p class="modal-desc">Hover over an individual series bar to see that series rating </p>
-            <p class="modal-desc">See you next Season! </p>
+            <p class="modal-desc">To start, choose any Showrunner from the bottom ticker or the dropdown above </p>
+            <p class="modal-desc">A graph with a Showrunner's series will appear with its TVmaze rating </p>
+            <p class="modal-desc">Hover over an individual bar to see that series' rating </p>
+            <p class="modal-desc">TVmaze is a virtual TV guide, hosting information about every show, their cast and crews, 
+                as well as its own rating system (aggregated from user data). </p>
+            <p class="modal-desc">Visit <a id="maze-link" target="_blank" href="https://www.tvmaze.com/features">TVmaze</a> to learn more. </p> 
+            
+            <p class="modal-desc">See you next season! </p>
             <div class="modal-links">
                 <a target="_blank" href="https://www.linkedin.com/in/evan-leon-737918211/"><i class="fab fa-linkedin fa-2x"></i></a>
                 <a target="_blank" href="https://github.com/Evan-Leon"><i class="fab fa-github fa-2x"></i></a>
