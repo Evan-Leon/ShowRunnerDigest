@@ -30,7 +30,7 @@ A user can choose a Showrunner, by clicking a name in the dropdown list, or by c
 
 
 ### Bar Graph Code Snippet
-D3.js was utilized for generating the bar graph as well as generating the series information pop-up, which was done by creating a div with the necessary information and appending it to the html body to be able to display over any region of the graph.
+D3.js was used to create the bar graph as well as generating the series' information pop-up, which was done by creating a div with the necessary information and appending it to the html body to be able to display over any region of the graph.
 ```js
   let hover = d3.select("body")
         .append("div")
