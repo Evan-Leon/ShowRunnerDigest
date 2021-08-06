@@ -1,7 +1,8 @@
 # ShowRunnerDigest
 ## About
-Have you ever wondered who was responsible for your favorite TV shows? A ShowRunner is the person who creates a series, then is in charge of making that series happen. They are generally the Executive Producer, Writer, or Director (and sometimes all of them). ShowRunner Digest provides a list of various popular ShowRunners and when interacting with that ShowRunner, provides a bar graph data visualization of the ShowRunner's series and that series TVMAZE rating. 
+Have you ever wondered who was responsible for your favorite TV shows? A Showrunner is, generally, the person who creates a series, then is in charge of the day to day responsibiities of 'running' the series. They are generally the Executive Producer, Writer, or Director (and sometimes all of them). ShowRunnerDigest provides a list of popular Showrunners and upon interaction, a bar graph data visualization of the ShowRunner's series and TVMAZE rating will appear. 
 
+TVMAZE is a virtual TV guide that hosts a variety of information on just about every show. Information including the cast and crew, as well as providing their own proprietary rating system, aggregated from their user data. All information regarding each ShowRunner was gained from the TVMAZE RESTful API. 
 
 ## Now playing at https://evan-leon.github.io/ShowRunnerDigest/
 
@@ -22,90 +23,63 @@ Have you ever wondered who was responsible for your favorite TV shows? A ShowRun
 ## Features
 
 ### Data Visualization 
+A user can choose a Showrunner, by clicking a name in the dropdown list, or by clicking a name from the animated ticker at the bottom of the screen. D3.js was utilized to provide an interactive bar graph, displaying various series from a Showrunner. Bars, when hovered over, will provide the series name and TVMAZE rating. Toggling between Showrunners triggers custom JS animations that mimic a retro TV screen.
+
+![tool_tip](https://user-images.githubusercontent.com/78226696/127876313-79d65c88-af8d-4e8d-a591-0f167cfc9501.gif)
 
 
 
-![reviews](https://user-images.githubusercontent.com/78226696/127342207-95830a45-8ebb-4ee3-a4d6-69224364a760.gif)
-
-### Reviews Code Snippet
-Code that maps through all reviews for a listing, then does a check to see if the current user is the author of the review, will activate edit/delete buttons accordingly.
+### Bar Graph Code Snippet
+D3.js was used to create the bar graph as well as generating the series' information pop-up, which was done by creating a div with the necessary information and appending it to the html body to be able to display over any region of the graph.
 ```js
-<div className='actual-reviews'>
-                        { 
-                            Object.values(reviews).map((review, i) => (
-                                <div className="review-display-container" key={i}>
-                                    <div className="user-title-container">
-                                        <li className="user-rev" ><FontAwesomeIcon className="rev-user-icon"  icon={faUserCircle}  />{review.guest.first_name} </li>
-                                        <li className="rev-date">{format(new Date(review.createdAt),'MMMM yyyy' )}</li>
-                                    </div>
-                                    <li > {review.body} </li>
-                                    {this.props.currentUser === review.guest.id && (
-                                        
-                                        <div className="edit-delete-btns-container">
-                                            <button className="edit-delete-review-btns" value={review.id} onClick={this.handleDelete}>Delete </button>
-                                            <button className="edit-delete-review-btns" value={review.id} onClick={this.handleEdit}>Edit </button>
-                                        </div>
-                                    
-                                    )}
-                                </div>
-                            ))
-                        }
-                    
-                </div> 
-  </div>
+  let hover = d3.select("body")
+        .append("div")
+        .style("opacity", 0)
+        .style('visibility', 'visible')
+        .style("position", "absolute")
+        .attr("class", "hovertool")
+        .style('background-color', 'white')
+        .style("z-index", 10)
+        .style('border', 'solid')
+        .style('border-width', '1px')
+        .style('border-radius', '5px')
+        .style('padding', '5px') 
   ```
 
 
 
-### Search Feature
-Users can search all listings, from any page, at any time and receive all listing titles or locations that match the search. All listings are indexed and pins applied to the map. This was done by creating a custom search route, first in React, then sending the text of the search, via Ajax request to the custom search Rails route. The text is parsed and an Active Record request is made to search all listings, then these results are returned to the front end.
+### JS Custom TV Animations
+When switching between Showrunners or interacting with the 'options' or 'power' buttons custom JS animations were built utilizing the asynchronous nature of JS in combination with gifs. Click handlers trigger a variety of timed class changes, each matched with the necessary gif to mimic the desired effects. 
 
-![search](https://user-images.githubusercontent.com/78226696/127343997-b35f31f1-a698-4fee-a1bd-0a849d80a7ab.gif)
+![tv-ani](https://user-images.githubusercontent.com/78226696/127875933-10174ba5-9e68-4c65-85bc-04dfe724eb92.gif)
 
-### Search Code Snippet
-Code that first isolates the search term from the url, then sends a thunk action, receiving listings, then setting the components state to those listings.
+
+### Power-off code Snippet
+Code that toggles between classes, using setTimeout to wait for each animation to complete.
 ```js
-componentDidMount() {
-        
-        this.props.fetchSearch(this.props.match.params.searchString)
-            .then(listings => this.setState(listings))
-    }
+const removeClass = () =>  document.getElementById("screen").classList.remove('turn-on');
+            const removeHidden = () =>  document.getElementById("bar-chart").classList.remove('hidden');
+            const addClass = () =>  document.getElementById("screen").classList.add('turn-on');
+            const addClassOn = () =>  document.getElementById("screen").classList.add('on');
+            
+            
+            const switchTurnOn= () => (setTimeout(removeClass, 6000));
+            const unhideBarchart= () => (setTimeout(removeHidden, 6100));
+            const classOn= () => (setTimeout(addClassOn, 6100));
+            const hideModal = () => document.getElementById("modal").classList.add("modal-off");
+            const modalOff = () => document.getElementById("modal").classList.remove("modal-on");
+
+            document.getElementById("screen").classList.remove('off');
+            document.getElementById("bar-chart").classList.add('hidden');
+            if (modal.classList[0] === "modal-on") {
+                debugger
+                modalOff();
+                hideModal();
+            }
+            addClass();
+            switchTurnOn();
+            classOn();
+            unhideBarchart();
 ```
 
-### Modals, Modals, Modals
-Much akin to Airbnb, WhereBNB utilizes many modals to aid in user experience. Whether it is for booking a stay, editing a booking or review, logging in or signing up, modals are a lovely tool to keep users engage and cut down on problems. Utilizing Redux to set the present modal to a ui slice of state and then using a JS switch statement to detect which modal is open, then setting the necessary React component to render.
 
-![modals](https://user-images.githubusercontent.com/78226696/127345674-0d06eedb-f8a0-49e4-a8a6-60ff6f5d15d4.gif)
-
-
-### Modals Code Snippet
-Code that uses a JS switch statement to see which modal is active, then display that React component in modal form. If no modal is active, no modal will display.
-```js
-  function Modal({modal, closeModal, removeFilter}) {
-    if (!modal){
-        return null;
-    }
-    let component;
-    switch (modal) {
-        case 'login':
-            component = < LoginFormContainer/>;
-            break;
-        case 'signup':
-            component = <SignupFormContainer/>;
-            break;
-        case 'edit-review':
-            component = <EditReviewContainer />;
-            break;
-        case 'edit-booking':
-            component = <EditBookingContainer />;
-            break;
-        case 'booking-confirm':
-            component = <BookingConfirmContainer />;
-            break;
-        case 'review-display-edit-container':
-            component = <ReviewDisplayEditContainer/>;
-            break;
-        default:
-            return null;
-    }
-```
